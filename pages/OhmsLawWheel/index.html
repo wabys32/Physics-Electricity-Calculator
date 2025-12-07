@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ohm's Law Wheel</title>
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/images/electicity_logo.png">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page">Ohm's Law Wheel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../ResistanceCalculator/resistance.html">Resistance Calculator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container d-flex flex-column align-items-center">
+        <h2 class="mb-4 text-center fw-bold">Ohm's Law Wheel</h2>
+
+        <div class="wheel-container">
+            <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+                <!-- Main Circle Outlines -->
+                <circle cx="300" cy="300" r="290" class="wheel-stroke" stroke-width="3" />
+                <circle cx="300" cy="300" r="145" class="wheel-stroke" stroke-width="3" />
+
+                <!-- Cross Lines (Dividing Inner Quadrants) -->
+                <line x1="300" y1="10" x2="300" y2="590" class="wheel-stroke" />
+                <line x1="10" y1="300" x2="590" y2="300" class="wheel-stroke" />
+
+                <!-- Radial Lines for Outer Ring (Every 30 degrees) -->
+                <g id="radial-lines">
+                    <line x1="300" y1="155" x2="300" y2="10" transform="rotate(30, 300, 300)" class="wheel-stroke" />
+                    <line x1="300" y1="155" x2="300" y2="10" transform="rotate(60, 300, 300)" class="wheel-stroke" />
+                    <line x1="300" y1="155" x2="300" y2="10" transform="rotate(120, 300, 300)" class="wheel-stroke" />
+                    <line x1="300" y1="155" x2="300" y2="10" transform="rotate(150, 300, 300)" class="wheel-stroke" />
+                    <line x1="300" y1="155" x2="300" y2="10" transform="rotate(210, 300, 300)" class="wheel-stroke" />
+                    <line x1="300" y1="155" x2="300" y2="10" transform="rotate(240, 300, 300)" class="wheel-stroke" />
+                    <line x1="300" y1="155" x2="300" y2="10" transform="rotate(300, 300, 300)" class="wheel-stroke" />
+                    <line x1="300" y1="155" x2="300" y2="10" transform="rotate(330, 300, 300)" class="wheel-stroke" />
+                </g>
+
+                <!-- INNER QUADRANT LABELS (Added IDs for targeting) -->
+                <text id="inner-V" x="240" y="250" class="wheel-text inner-label">V</text>
+                <text id="inner-I" x="360" y="250" class="wheel-text inner-label">I</text>
+                <text id="inner-R" x="360" y="360" class="wheel-text inner-label">R</text>
+                <text id="inner-P" x="240" y="360" class="wheel-text inner-label">P</text>
+
+
+                <!-- OUTER RING FORMULAS -->
+                <!-- Groups now have class="calc-group" and data attributes for logic -->
+
+                <!-- === I (Current) Sector (Top Right) === -->
+
+                <!-- 1. I = V / R -->
+                <g transform="translate(356, 92)" class="calc-group" data-target="I" data-formula="V/R">
+                    <foreignObject x="-20" y="-27" width="40" height="30">
+                        <input type="number" class="var-input" data-var="V" placeholder="V">
+                    </foreignObject>
+                    <line x1="-15" y1="4" x2="15" y2="4" class="fraction-line" />
+                    <foreignObject x="-20" y="5" width="40" height="30">
+                        <input type="number" class="var-input" data-var="R" placeholder="R">
+                    </foreignObject>
+                </g>
+
+                <!-- 2. I = P / V -->
+                <g transform="translate(452, 148)" class="calc-group" data-target="I" data-formula="P/V">
+                    <foreignObject x="-20" y="-27" width="40" height="30">
+                        <input type="number" class="var-input" data-var="P" placeholder="P">
+                    </foreignObject>
+                    <line x1="-15" y1="4" x2="15" y2="4" class="fraction-line" />
+                    <foreignObject x="-20" y="5" width="40" height="30">
+                        <input type="number" class="var-input" data-var="V" placeholder="V">
+                    </foreignObject>
+                </g>
+
+                <!-- 3. I = Sqrt(P / R) -->
+                <g transform="translate(508, 244)" class="calc-group" data-target="I" data-formula="sqrt(P/R)">
+                    <path d="M-30 5 L-22 34 L-15 -15 L30 -15" class="sqrt-path" fill="none" />
+                    <foreignObject x="-12" y="-17" width="40" height="30">
+                        <input type="number" class="var-input" data-var="P" placeholder="P">
+                    </foreignObject>
+                    <line x1="-5" y1="11" x2="20" y2="11" class="fraction-line" stroke-width="1.5" />
+                    <foreignObject x="-12" y="10" width="40" height="30">
+                        <input type="number" class="var-input" data-var="R" placeholder="R">
+                    </foreignObject>
+                </g>
+
+
+                <!-- === R (Resistance) Sector (Bottom Right) === -->
+
+                <!-- 4. R = V^2 / P -->
+                <g transform="translate(508, 356)" class="calc-group" data-target="R" data-formula="V^2/P">
+                    <foreignObject x="-25" y="-27" width="40" height="30">
+                        <input type="number" class="var-input" data-var="V" placeholder="V">
+                    </foreignObject>
+                    <text x="12" y="-22" class="wheel-text" style="font-size: 14px;">2</text>
+                    <line x1="-20" y1="4" x2="20" y2="4" class="fraction-line" />
+                    <foreignObject x="-20" y="5" width="40" height="30">
+                        <input type="number" class="var-input" data-var="P" placeholder="P">
+                    </foreignObject>
+                </g>
+
+                <!-- 5. R = V / I -->
+                <g transform="translate(452, 452)" class="calc-group" data-target="R" data-formula="V/I">
+                    <foreignObject x="-20" y="-27" width="40" height="30">
+                        <input type="number" class="var-input" data-var="V" placeholder="V">
+                    </foreignObject>
+                    <line x1="-15" y1="4" x2="15" y2="4" class="fraction-line" />
+                    <foreignObject x="-20" y="5" width="40" height="30">
+                        <input type="number" class="var-input" data-var="I" placeholder="I">
+                    </foreignObject>
+                </g>
+
+                <!-- 6. R = P / I^2 -->
+                <g transform="translate(356, 508)" class="calc-group" data-target="R" data-formula="P/I^2">
+                    <foreignObject x="-20" y="-27" width="40" height="30">
+                        <input type="number" class="var-input" data-var="P" placeholder="P">
+                    </foreignObject>
+                    <line x1="-20" y1="3" x2="20" y2="3" class="fraction-line" />
+                    <foreignObject x="-25" y="8" width="40" height="30">
+                        <input type="number" class="var-input" data-var="I" placeholder="I">
+                    </foreignObject>
+                    <text x="8" y="13" class="wheel-text" style="font-size: 14px;">2</text>
+                </g>
+
+
+                <!-- === P (Power) Sector (Bottom Left) === -->
+
+                <!-- 7. P = I^2 * R -->
+                <g transform="translate(244, 508)" class="calc-group" data-target="P" data-formula="I^2*R">
+                    <foreignObject x="-35" y="-10" width="40" height="30">
+                        <input type="number" class="var-input" data-var="I" placeholder="I">
+                    </foreignObject>
+                    <text x="-5" y="-5" class="wheel-text" style="font-size: 14px;">2</text>
+                    <circle cx="5" cy="5" r="2" fill="black" />
+                    <foreignObject x="0" y="-10" width="40" height="30">
+                        <input type="number" class="var-input" data-var="R" placeholder="R">
+                    </foreignObject>
+                </g>
+
+                <!-- 8. P = V^2 / R -->
+                <g transform="translate(148, 452)" class="calc-group" data-target="P" data-formula="V^2/R">
+                    <foreignObject x="-25" y="-27" width="40" height="30">
+                        <input type="number" class="var-input" data-var="V" placeholder="V">
+                    </foreignObject>
+                    <text x="12" y="-22" class="wheel-text" style="font-size: 14px;">2</text>
+                    <line x1="-20" y1="4" x2="20" y2="4" class="fraction-line" />
+                    <foreignObject x="-20" y="5" width="40" height="30">
+                        <input type="number" class="var-input" data-var="R" placeholder="R">
+                    </foreignObject>
+                </g>
+
+                <!-- 9. P = V * I -->
+                <g transform="translate(92, 356)" class="calc-group" data-target="P" data-formula="V*I">
+                    <foreignObject x="-35" y="-10" width="40" height="30">
+                        <input type="number" class="var-input" data-var="V" placeholder="V">
+                    </foreignObject>
+                    <circle cx="0" cy="5" r="2" fill="black" />
+                    <foreignObject x="-5" y="-10" width="40" height="30">
+                        <input type="number" class="var-input" data-var="I" placeholder="I">
+                    </foreignObject>
+                </g>
+
+
+                <!-- === V (Voltage) Sector (Top Left) === -->
+
+                <!-- 10. V = I * R -->
+                <g transform="translate(92, 244)" class="calc-group" data-target="V" data-formula="I*R">
+                    <foreignObject x="-35" y="-10" width="40" height="30">
+                        <input type="number" class="var-input" data-var="I" placeholder="I">
+                    </foreignObject>
+                    <circle cx="0" cy="5" r="2" fill="black" />
+                    <foreignObject x="-5" y="-10" width="40" height="30">
+                        <input type="number" class="var-input" data-var="R" placeholder="R">
+                    </foreignObject>
+                </g>
+
+                <!-- 11. V = Sqrt(P * R) -->
+                <g transform="translate(148, 148)" class="calc-group" data-target="V" data-formula="sqrt(P*R)">
+                    <path d="M-35 5 L-27 18 L-20 -18 L35 -18" class="sqrt-path" fill="none" />
+                    <foreignObject x="-28" y="-10" width="40" height="30">
+                        <input type="number" class="var-input" data-var="P" placeholder="P">
+                    </foreignObject>
+                    <circle cx="8" cy="5" r="2" fill="black" />
+                    <foreignObject x="2" y="-10" width="40" height="30">
+                        <input type="number" class="var-input" data-var="R" placeholder="R">
+                    </foreignObject>
+                </g>
+
+                <!-- 12. V = P / I -->
+                <g transform="translate(244, 92)" class="calc-group" data-target="V" data-formula="P/I">
+                    <foreignObject x="-20" y="-27" width="40" height="30">
+                        <input type="number" class="var-input" data-var="P" placeholder="P">
+                    </foreignObject>
+                    <line x1="-15" y1="4" x2="15" y2="4" class="fraction-line" />
+                    <foreignObject x="-20" y="5" width="40" height="30">
+                        <input type="number" class="var-input" data-var="I" placeholder="I">
+                    </foreignObject>
+                </g>
+
+            </svg>
+        </div>
+
+        <button id="clear-btn" class="clear-btn mt-4">
+            Clear All
+        </button>
+        <audio id="click-sound" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
+
+        <div class="mt-4 text-center text-muted">
+            <p><strong>Click any letter on the outer ring to enter a value.</strong></p>
+            <p><strong>V</strong> = Voltage | <strong>I</strong> = Current | <strong>R</strong> = Resistance |
+                <strong>P</strong> = Power
+            </p>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>

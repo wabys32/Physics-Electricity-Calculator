@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resistance Calculator</title>
+
+    <!-- Icon -->
+    <link rel="icon" type="image/x-icon" href="../../assets/images/electicity_logo.png">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../../assets/bootstrap/css/bootstrap.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="resistance.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../OhmsLawWheel/index.html">Ohm's Law Wheel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active">Resistance Calculator</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Resistance Calculator</h1>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Select Connection Type</h5>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="connectionType" id="series" value="series">
+                            <label class="form-check-label" for="series">Series</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="connectionType" id="parallel" value="parallel" checked>
+                            <label class="form-check-label" for="parallel">Parallel</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Resistors</h5>
+                        <div class="input-group mb-3">
+                            <input type="number" class="form-control" id="resistorValue" placeholder="Enter resistance in ohms" min="0" step="0.01">
+                            <button class="btn btn-primary" type="button" id="addResistor">Add</button>
+                        </div>
+                        <ul class="list-group" id="resistorList"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Resultant Resistance</h5>
+                        <p id="result" class="fs-4">0 Ω</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="../../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="resistance.js"></script>
+</body>
+</html>

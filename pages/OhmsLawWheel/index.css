@@ -1,0 +1,137 @@
+@font-face {
+    font-family: "JetBrainsMono";
+    src: url('../../assets/fonts/JetBrainsMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'JetBrainsMono';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.wheel-container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* SVG Styles */
+svg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.wheel-stroke {
+    fill: none;
+    stroke: #000;
+    stroke-width: 2;
+}
+
+.wheel-text {
+    font-weight: bold;
+    fill: #000;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.formula-text {
+    font-size: 24px;
+}
+
+.inner-label {
+    font-size: 60px;
+    font-weight: 900;
+}
+
+.fraction-line {
+    stroke: #000;
+    stroke-width: 2;
+}
+
+.sqrt-path {
+    fill: none;
+    stroke: #000;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* Input Styling for ForeignObjects */
+.var-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: #000;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    /* Removes the blue focus border */
+    cursor: pointer;
+}
+
+.var-input::placeholder {
+    color: #000;
+    opacity: 1;
+}
+
+.var-input:focus {
+    cursor: text;
+}
+
+/* For WebKit-based browsers (Chrome, Safari, Edge) */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    /* Removes any default margin that might appear */
+}
+
+/* For Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* General appearance property for other browsers (optional, but good for consistency) */
+input[type="number"] {
+    appearance: textfield;
+}
+
+/* NEW: Clear Button Styling */
+.clear-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.clear-btn:hover {
+    background-color: #bb2d3b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.clear-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
