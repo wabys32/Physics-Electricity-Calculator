@@ -66,4 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         resultDisplay.textContent = `${total.toFixed(2)} Ω`;
     }
+
+    resistorValueInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            addResistorBtn.click();
+        }
+    });
 });
